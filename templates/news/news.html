@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+  {% for one_news in news %}
+
+  <h1>{{one_news.title}}</h1>
+  <font>{{one_news.text|urlize }}</font>
+
+  {% endfor %}
+</main>
+{% endblock %}
+
+

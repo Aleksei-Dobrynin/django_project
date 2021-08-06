@@ -1,0 +1,162 @@
+
+
+    
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+
+<link href="{% static 'resp/css/main.css'%}" rel="stylesheet" type="text/css">
+<script src="{% static 'resp/js/jquery.min-latest.js'%}"></script>
+<script src="{% static 'resp/js/jquery.nivo.slider.js'%}"></script>
+<script src="{% static 'resp/js/jquery.prettyPhoto.js'%}"></script>
+<script src="{% static 'resp/js/custom.js'%}"></script>
+<script>
+$(function () {
+    setInterval("rotateDiv()", 10000);
+});
+function rotateDiv() {
+    var currentDiv = $("#simpleslider div.current");
+    var nextDiv = currentDiv.next();
+    if (nextDiv.length == 0) nextDiv = $("#simpleslider div:first");
+    currentDiv.removeClass('current')
+        .addClass('previous')
+        .fadeOut('2000');
+    nextDiv.fadeIn('3000')
+        .addClass('current', function () {
+        currentDiv.fadeOut('2000', function () {
+            currentDiv.removeClass('previous');
+        });
+    });
+}
+</script>
+<script charset="utf-8">
+$(document)
+    .ready(function () {
+    $("a[rel^='prettyPhoto']")
+        .prettyPhoto();
+});
+</script>
+<link href="{% static 'index.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+    <main>
+        <div id="sliderwrap">
+            <!-- Start Slider -->
+            <div id="slider" class="nivoSlider"> <img src="{% static 'resp/images/slider-banners/design1.jpg'%}" alt=""> <img src="{% static 'resp/images/slider-banners/design2.jpg'%}" alt=""> <img src="{% static 'resp/images/slider-banners/design3.jpg'%}" alt=""> </div>
+            <!-- End Slider -->
+            <!-- Start Slider HTML Captions -->
+            <div id="htmlcaption" class="nivo-html-caption"> <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. </div>
+            <!-- End Slider HTML Captions -->
+          </div>
+        <div id="welcome-section">
+            <div id="text_holder">
+                <h1>Попутка.kg</h1>
+                <h2>поездки по Кыргызстану проще простого!</h2>
+                <p>Цель нащего проекта облегчить поиск трансторта для поссажиров межгородских перевозок, и пассажиров для водителей. <br>
+                Для этого мы создали удобную платформу по поиску обьявлений о перевозке. <br>
+                Наш проект будет интересен вам если:<br></p>
+                <ul>
+                    <li>вы турист или путешествуете из одного города в другой и ищете оптимальный способ поездки по соотношению цена/качество</li>
+                    <li>вы владелец авто собирающийся в поездку в другой город и не против немного заработать взяв попутчика</li>
+                    <li>вы занимаетесь перевозками пасажиров и хотете привлечь новых клиентов </li>
+                </ul>
+                <p>Вы можете посмотреть доступные обьявления о попутчиках или оставить кликнув по этой кнопке. Небойтесь все это абсолютно бесплатно :)</p>
+                <div class="link_button"><a href="travel"><button type="button" class="btn btn-primary btn-lg">клик</button></a></div>
+            </div>
+        </div>
+        <div id="about_us">
+            <h2>Мы команда молодых талантливых разработчиков, настроенных на продвижение сервисов онлайн услуг в Кыргызстане</h2>
+            <div id="grid_holder">
+                <div class="dev-tile">
+                    <img class="dev-pic" src="{% static 'blank-profile-picture-973460_640.png'%}">
+                    <h2 class="dev-title">Алексей</h2>
+                    <p class="dev-job">Front-end</p>
+                </div>
+                <div class="dev-tile">
+                    <img class="dev-pic" src="{% static 'blank-profile-picture-973460_640.png'%}">
+                    <h2 class="dev-title">Бакберди</h2>
+                    <p class="dev-job">Back-end</p>
+                </div>
+                <div class="dev-tile">
+                    <img class="dev-pic" src="{% static 'blank-profile-picture-973460_640.png'%}">
+                    <h2 class="dev-title">Камила</h2>
+                    <p class="dev-job">SMM, graphic design</p>
+                </div>
+            </div>
+        </div>
+        <div id="news">
+            <div id="news_holder">
+                <h1>Новости</h1>
+                <!--
+                     Вставить ссылку на последнюю новость 
+                -->
+                <p>все новости можно посмотреть тут</p>
+                <div class="link_button"><a href="news"><button type="button" class="btn btn-primary btn-lg">клик</button></a></div>
+            </div>
+        </div>
+        <div id="contacts">
+            <h2>Связатся с нами</h2>
+            <div id="contact_holder">
+                <div class="contacts">
+                    <h3>Оставте нам сообщение</h3>
+                    <form action="/" method="POST">
+                        {% csrf_token %}
+                        <div class="form_row">
+                            <div class="labels">
+                                <label>Ваше Имя</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="name">
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <div class="labels">
+                                <label>Ваша Фамилия</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="last_name">
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <div class="labels">
+                                <label> ваш email</label>
+                            </div>
+                            <div class="input">
+                                <input type="email" name="email">
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <div class="labels">
+                                <label>Ваше сообщение</label>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="text">
+                            </div>
+                        </div>
+                        <div class="form_row">
+                            <div class="labels">
+                                
+                            </div>
+                            <div class="input">
+                                <button type="submit" class="btn btn-primary btn-lg">Отправить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="contacts">
+                    <h3>Свяжитесь с нами</h3>
+                    <ul>
+                        <li>email: random@mail.su</li>
+                        <li>тел. +996322223332</li>
+                        <li>адрес: ул. где-то там 69</li>
+            </div>
+
+        </div>
+    </main>
+
+{% endblock %}

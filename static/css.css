@@ -1,0 +1,49 @@
+body {
+    background-color: #eee;
+  }
+  header{
+    position:fixed;
+    display:flex;
+    justify-content:space-between;
+    top:0px;
+    left:0px;
+    height:90px;
+    width:100%;
+    background-color:gold;
+    /*display: none*/;
+  }
+  header a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  #logo {
+    display: inline-block;
+    width: auto;
+    height: 6vw;
+    border-radius:6vw;
+    position: relative;
+    animation: moveIn 1s;
+  }
+  #logo_text{
+    margin: -0px;
+    margin-top: -20px;
+  }
+  #header-img{
+    display: inline-block;
+    width: auto;
+    height: 6vw;
+    border-radius:6vw;
+    margin: -0px;
+  }
+  @keyframes moveIn {
+    from{
+      transform: translateX(-500px) ;
+    }
+    to{
+      transform: translateX(0px)
+    }
+  }
+  main{
+    margin-top: 100px;
+  }

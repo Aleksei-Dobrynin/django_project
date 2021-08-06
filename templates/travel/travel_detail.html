@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <ul>
+        <li>Имя водителя:{{travel_detail.Name}}</li>
+        <li>Телефон:{{travel_detail.Phonenumber}}</li>
+        <li>Номер авто:{{travel_detail.CarNumber}}</li>
+        <li>Дата:{{travel_detail.DateOfRegister}}</li>
+        <li>Модель авто:{{travel_detail.AutoModel}}</li>
+        <li>Примечание:{{travel_detail.Description}}</li>
+        <li>Количество мест:{{travel_detail.NumOfSits}}</li>
+        <li>Пункт отправки:{{travel_detail.Start}}</li>
+        <li>Пункт назначения:{{travel_detail.Destonation}}</li>
+        <li>Регистраия:{{travel_detail.Verified}}</li>
+        <li>Цена:{{travel_detail.Price}}</li>
+    </ul>
+    </main>
+    
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <form action="/register/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="Ваше имя"><br>
+        <input type="text" name="last_name" placeholder="Ваша фамилия"><br>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="password" name="password1" placeholder="Пароль"><br>
+        <input type="password" name="password2" placeholder="Подтвердите пароль"><br>
+        <button type="submit" class="btn btn-primary btn-lg">Сохранить</button>
+    </form>
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</main>
+{% endblock %}
+
+

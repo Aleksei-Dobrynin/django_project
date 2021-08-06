@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<link href="{% static 'index.css'%}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'main.css'%}">
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <div id="main_space">
+        <div id="content">
+               <!-- ##{{Form.as_p}} --> 
+               <form action="/travel_filter/" id="search_form" method="GET">
+                    <div class="select_box">
+                        <h3>пункт отправления</h3>
+                        <select name="S">
+                             <option>Бишкек</option>
+                             <option>Кант</option>
+                             <option>Балыкчи</option>
+                             <option>Каракол</option>
+                             <option>Талас</option>
+                             <option>Нарын</option>
+                             <option>Джалал-абад</option>
+                             <option>Ош</option>
+                             <option>Баткен</option>
+                        </select>
+                    </div>
+                    <div class="select_box">
+                        <h3>пункт назначения</h3>
+                        <select name="D">
+                            <option>Бишкек</option>
+                            <option>Кант</option>
+                            <option>Балыкчи</option>
+                            <option>Каракол</option>
+                            <option>Талас</option>
+                            <option>Нарын</option>
+                            <option>Джалал-абад</option>
+                            <option>Ош</option>
+                            <option>Баткен</option>
+                       </select>
+                    </div>
+                    <button type="submit">Поиск</button>
+                    {% if user.is_authenticated %}
+                    <a href="/travel_new"><button type="button">Добавить</button></a>
+                    {% endif %}
+
+                </form>
+
+            <div id="overflow">
+                <!-- ТУТ будут рендерится строки из базы -->
+                
+
+                {% for one_travel in travel%}
+                <a href="{{one_travel.pk}}/">
+                    <div class="travel_div">
+                        <ul class="travel_list">
+                            <li>город отправления:{{one_travel.Start}}</li>
+                            <li>город прибытия:{{one_travel.Destonation}}</li>
+                            <li>цена:{{one_travel.Price}}</li>
+                        </ul>
+                    </div>
+                </a>
+                {%endfor%}
+                
+            </div>
+
+        </div>
+    </div>
+</main>
+<footer>
+    <div>вставить что то</div>
+</footer>
+
+{% endblock %}
+   
