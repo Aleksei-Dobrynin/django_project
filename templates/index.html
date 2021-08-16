@@ -5,54 +5,12 @@
 
 {% load static %}
 
-{% block head %}
 
-<link href="{% static 'resp/css/main.css'%}" rel="stylesheet" type="text/css">
-<script src="{% static 'resp/js/jquery.min-latest.js'%}"></script>
-<script src="{% static 'resp/js/jquery.nivo.slider.js'%}"></script>
-<script src="{% static 'resp/js/jquery.prettyPhoto.js'%}"></script>
-<script src="{% static 'resp/js/custom.js'%}"></script>
-<script>
-$(function () {
-    setInterval("rotateDiv()", 10000);
-});
-function rotateDiv() {
-    var currentDiv = $("#simpleslider div.current");
-    var nextDiv = currentDiv.next();
-    if (nextDiv.length == 0) nextDiv = $("#simpleslider div:first");
-    currentDiv.removeClass('current')
-        .addClass('previous')
-        .fadeOut('2000');
-    nextDiv.fadeIn('3000')
-        .addClass('current', function () {
-        currentDiv.fadeOut('2000', function () {
-            currentDiv.removeClass('previous');
-        });
-    });
-}
-</script>
-<script charset="utf-8">
-$(document)
-    .ready(function () {
-    $("a[rel^='prettyPhoto']")
-        .prettyPhoto();
-});
-</script>
-<link href="{% static 'index.css'%}" rel="stylesheet">
-{% endblock %}
 
 {% block content %}
 
 
     <main>
-        <div id="sliderwrap">
-            <!-- Start Slider -->
-            <div id="slider" class="nivoSlider"> <img src="{% static 'resp/images/slider-banners/design1.jpg'%}" alt=""> <img src="{% static 'resp/images/slider-banners/design2.jpg'%}" alt=""> <img src="{% static 'resp/images/slider-banners/design3.jpg'%}" alt=""> </div>
-            <!-- End Slider -->
-            <!-- Start Slider HTML Captions -->
-            <div id="htmlcaption" class="nivo-html-caption"> <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. </div>
-            <!-- End Slider HTML Captions -->
-          </div>
         <div id="welcome-section">
             <div id="text_holder">
                 <h1>Попутка.kg</h1>
@@ -75,17 +33,12 @@ $(document)
                 <div class="dev-tile">
                     <img class="dev-pic" src="{% static 'blank-profile-picture-973460_640.png'%}">
                     <h2 class="dev-title">Алексей</h2>
-                    <p class="dev-job">Front-end</p>
-                </div>
-                <div class="dev-tile">
-                    <img class="dev-pic" src="{% static 'blank-profile-picture-973460_640.png'%}">
-                    <h2 class="dev-title">Бакберди</h2>
                     <p class="dev-job">Back-end</p>
                 </div>
                 <div class="dev-tile">
                     <img class="dev-pic" src="{% static 'blank-profile-picture-973460_640.png'%}">
-                    <h2 class="dev-title">Камила</h2>
-                    <p class="dev-job">SMM, graphic design</p>
+                    <h2 class="dev-title">Бакберди</h2>
+                    <p class="dev-job">Front-end</p>
                 </div>
             </div>
         </div>
@@ -151,8 +104,8 @@ $(document)
                 <div class="contacts">
                     <h3>Свяжитесь с нами</h3>
                     <ul>
-                        <li>email: random@mail.su</li>
-                        <li>тел. +996322223332</li>
+                        <li>email: do.aleksey.97@gmail.com</li>
+                        <li>тел. +996551892890</li>
                         <li>адрес: ул. где-то там 69</li>
             </div>
 
