@@ -25,3 +25,6 @@ class Travel(models.Model):
     Destonation = models.CharField('Пункт назначения',max_length=100,choices=PLACE_CHOICES, default=1)
     Verified = models.BooleanField(default=False)
     Price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.Start + self.Destonation
