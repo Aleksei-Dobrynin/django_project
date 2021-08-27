@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from accounts.models import UserInfo
 
 # Create your views here.
 
@@ -59,3 +60,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('travel')
+
+def cabinet(request):
+    Info = UserInfo.objects.all()
+    return render(request,'accounts/cabinet.html')

@@ -7,7 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class UserInfo (models.Model):
     user = OneToOneField(User, on_delete=models.CASCADE)
-    PhoneNumber = PhoneNumberField(null=True)
+    PhoneNumber = PhoneNumberField('Номер телефона (e.g. +12125552368)', null=True)
     AutoModel = models.CharField('Модель авто',max_length=40)
     CarNumber = models.CharField('Номер авто',max_length= 8)
     CarImage = models.ImageField(null=True, blank=True)
