@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main>
+        <ul>
+            <li>Ваш Username {{user.username}}</li>
+            <li>Ваше имя {{user.first_name}}</li>
+            <li>Ваша Фамилия {{user.last_name}}</li>
+            <li>Ваш email {{user.email}}</li>
+            <li>{{Info.PhoneNumber}}</li>
+            <li>{{Info.AutoModel}}</li>
+            <li>{{Info.CarNumber}}</li>
+            <li>{{Info.CarImage}}</li>
+        </ul>
+        
+    </main>
+{% endblock %}

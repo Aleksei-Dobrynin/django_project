@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from accounts.models import UserInfo
+from .forms import NewDriver
 
 # Create your views here.
 
@@ -62,9 +63,28 @@ def logout(request):
     return redirect('travel')
 
 def cabinet(request):
-    Info = UserInfo.objects.all()
-    return render(request,'accounts/cabinet.html')
+    if request.user.is_authenticated:
+        if hasattr(request.user, 'UserInfo'):
+            pk=User.pk
+            Info = get_object_or_404(UserInfo, pk=pk)
+            return render(request,'accounts/driver-cabinet.html',{'Info':Info})
+        else:
+            return render(request, 'accounts/cabinet.html')
+    else:
+        return redirect('login')
 
-#def driver_new(request):
-    #if request.method == "POST":
+def driver_new(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            form = NewDriver(request.POST)
+            if form.is_valid():
+                driver = form.save(commit=False)
+                driver.user = User.pk
+                driver.save()
+                return redirect('cabinet')
+        else:
+            form = NewDriver()
+            return render(request, 'accounts/new_driver', {'form': form})
+    else:
+        return redirect('login')
 
