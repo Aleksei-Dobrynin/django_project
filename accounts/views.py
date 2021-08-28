@@ -64,3 +64,7 @@ def logout(request):
 def cabinet(request):
     Info = UserInfo.objects.all()
     return render(request,'accounts/cabinet.html')
+
+#def driver_new(request):
+    #if request.method == "POST":
+

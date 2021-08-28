@@ -3,6 +3,13 @@
 {% block content %}
 
     <main>
-        
+        <ul>
+            <li>Ваш Username {{user.username}}</li>
+            <li>Ваше имя {{user.first_name}}</li>
+            <li>Ваша Фамилия {{user.last_name}}</li>
+            <li>Ваш email {{user.email}}</li>
+        </ul>
+        <p>Если вы являетесь водителем и хотите опубликовать свои заявления о попутке заполните дополнительную информаию пройдя по этой ссылке</p>
+        <a href=""><button type="button" class="btn btn-primary btn-lg">клик</button></a>
     </main>
 {% endblock %}
