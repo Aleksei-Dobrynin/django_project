@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import User_masege
+from .models import User_message
 
 # Create your views here.
 
@@ -13,7 +13,7 @@ def index(request):
 
         email = request.POST['email']
 
-        mes = User_masege.objects.create(name=name,last_name=last_name,email=email,text=text)
+        mes = User_message.objects.create(name=name,last_name=last_name,email=email,text=text)
         mes.save()
 
         return redirect('/')
